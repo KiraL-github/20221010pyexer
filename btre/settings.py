@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--v1cm9o68hj+0!4h7w9fw(t9+q!3)fsz+&732oe&-y36_a10r^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# ! remenberto turn off debug by False
+# ! remember turn off debug by False
 DEBUG = True
 
 # * web server ip address put inside the list
@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-# ! remenber register your Apps below
+# ! remember register your Apps below
 INSTALLED_APPS = [
     'pages',
     'django.contrib.admin',
@@ -121,7 +121,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'btre/static')
+]
+# 將Css file放在static內
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
