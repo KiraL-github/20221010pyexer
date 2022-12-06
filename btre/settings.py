@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,17 +20,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n29&raa)ee0h47)w&-_425f%xvv=@@c2cx*^%5q^ocz4hf&wo+'
+SECRET_KEY = 'django-insecure--v1cm9o68hj+0!4h7w9fw(t9+q!3)fsz+&732oe&-y36_a10r^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# ! remenberto turn off debug by False
 DEBUG = True
 
+# * web server ip address put inside the list
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# ! remenber register your Apps below
 INSTALLED_APPS = [
+    'pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+# ! don't touch this part
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,13 +51,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# ! main url/api entry config
 ROOT_URLCONF = 'btre.urls'
-
+# ! web pages location
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,13 +69,13 @@ TEMPLATES = [
         },
     },
 ]
-
+# ! web server gateway interface setting
 WSGI_APPLICATION = 'btre.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# ! sql engine
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -107,6 +110,7 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+# ! translate, more / other language
 USE_I18N = True
 
 USE_L10N = True
