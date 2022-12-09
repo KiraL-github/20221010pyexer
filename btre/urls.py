@@ -19,5 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     # /about or /index or /login 冇後續嘅會自動歸入 "page"
     path('', include('pages.urls')),
+    path('listings/', include('listings.urls')),
+    # LISTINGS/ ->go listings/urls.py/
     path('admin/', admin.site.urls),   # /admin 會自動歸入admin
 ]
