@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -55,6 +56,7 @@ MIDDLEWARE = [
 ]
 # ! main url/api entry config
 ROOT_URLCONF = 'btre.urls'
+
 # ! web pages location
 TEMPLATES = [
     {
@@ -88,9 +90,9 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

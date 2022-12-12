@@ -37,7 +37,15 @@ description : TEXT
 email : STR
 phone : STR
 is_mvp : BOOL [0]
-hire_date
+hire_date : DATE
 
 ### CONTACT
-
+id : INT
+user_id : INT
+listing: INT
+ listing id: INT
+ name: STR
+ email: STR
+ phone: STR
+ message: TEXT
+contact date : DATE
