@@ -20,6 +20,7 @@ class Listing(models.Model):
     lot_size = models.DecimalField(max_digits=5, decimal_places=1)
     is_published = models.BooleanField(default=True)
     list_data = models.DateTimeField(default=datetime.now, blank=True)
+    # 正確是 list_date , 入咗database, 從此以後就叫 list_data
     # photo - 有s嘅係house, 冇s係?
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d')
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
@@ -29,7 +30,7 @@ class Listing(models.Model):
     photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     
-    def _str_(self):
+    def __str__(self):
         return self.title
     # house for title
     

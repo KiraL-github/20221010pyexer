@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'listings/listings.html')
+    return render(request, 'listings/listings.html', {'name': 'something'})
 
 
 def listing(request):

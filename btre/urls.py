@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
+
+# urlpatterns is API
+# '/' API
+# '/' LISTINGS
+# /MEDIA/ 不是開放給public用的，是一條路徑，但不是API，與上面3者不在同一範圍內
 urlpatterns = [
     # eg: /about or /index or /login, 冇後續嘅會自動歸入 "page"
     path('', include('pages.urls')),
     path('listings/', include('listings.urls')),
     # LISTINGS/ ->go listings/urls.py/
-    path('admin/', admin.site.urls),   # /admin 會自動歸入admin
-]
+    path('admin/', admin.site.urls)   # /admin 會自動歸入admin
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
