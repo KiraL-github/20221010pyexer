@@ -4,19 +4,26 @@ from django.http import HttpResponse
 # Create your views here.
 from listings.models import Listing
 from realtors.models import Realtor
+from listings.choices import price_choices, state_choices, bedroom_choices
+# from .choices import price_choices, state_choices, bedroom_choices
 
 
 def index(request):
     listings = Listing.objects.order_by(
-        '-list_date').filter(is_published=True)[:3]
+        '-list_data').filter(is_published=True)[:3]
+    # make sure it's "data"
     context = {
-        'listings': listings
+        'listings': listings,
+        'state_choices': state_choices,
+        'price_choices': price_choices,
+        'bedroom_choices': bedroom_choices
     }
     return render(request, 'pages/index.html', context)
 
 
 def about(request):
     realtors = Realtor.objects.order_by('-hire_date')
+    # make sure it's "date"
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
     context = {
         'realtors': realtors,

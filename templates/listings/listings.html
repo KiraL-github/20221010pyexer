@@ -7,11 +7,8 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
-        <h1 class="display-4">Browse Our Properties {{name}}</h1>
-        <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
-        </p>
+        <h1 class="display-4">Browse Our Properties</h1>
+        <p class="lead">We help you to find a lovely home!</p>
       </div>
     </div>
   </div>
@@ -40,15 +37,13 @@
       <!-- loop the database -->
       {% for listing in listings %}
       <!-- listing content go here -->
-
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
-          <img class="card-img-top" src="{{listing.photo_main.url }}" alt="" />
-
+          <img class="card-img-top" src="{{listing.photo_main.url}}" alt="" />
           <div class="card-img-overlay">
             <h2>
               <span class="badge badge-secondary text-white"
-                >{{listing.price | intcomma }}</span
+                >${{listing.price | intcomma}}</span
               >
             </h2>
           </div>
@@ -80,12 +75,12 @@
             <hr />
             <div class="row py-2 text-secondary">
               <div class="col-12">
-                <i class="fas fa-user"></i> {{listing.realtor}}
+                <i class="fas fa-user"></i>{{listing.realtor}}
               </div>
             </div>
             <div class="row text-secondary pb-2">
               <div class="col-6">
-                <i class="fas fa-clock"></i> {{ listing.list_data | timesince}}
+                <i class="fas fa-clock"></i>{{listing.list_data | timesince}}
               </div>
             </div>
             <hr />
@@ -108,16 +103,14 @@
 
     <div class="row">
       <div class="col-md-12">
-        <!-- paginatation refactor -->
+        <!-- pagination refactor -->
         {% if listings.has_other_pages %}
         <ul class="pagination">
           {% if listings.has_previous %}
           <li class="page-items">
-            <!-- NOTE : ?page=2 -->
-            <a
-              href="?page={{listings.previous_page_number}}"
-              class="page-link"
-            ></a>
+            <a href="?page={{listings.previous_page_number}}" class="page-link"
+              >&laquo;</a
+            >
           </li>
           {% else %}
           <li class="page-item disabled">
