@@ -10,7 +10,7 @@ from listings.choices import price_choices, state_choices, bedroom_choices
 
 def index(request):
     listings = Listing.objects.order_by(
-        '-list_data').filter(is_published=True)[:3]
+        '-list_date').filter(is_published=True)[:3]
     # make sure it's "data"
     context = {
         'listings': listings,

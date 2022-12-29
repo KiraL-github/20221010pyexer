@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
-<!-- comment to seperate the block -->
+<!--comment to seperate the block -->
 {% load humanize %}
-<!-- comment to seperate the block -->
+<!-- load humanize for comma -->
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
         <h1 class="display-4">Browse Our Properties</h1>
-        <p class="lead">We help you to find a lovely home!</p>
+        <p class="lead">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
+          pariatur!
+        </p>
       </div>
     </div>
   </div>
@@ -43,7 +46,7 @@
           <div class="card-img-overlay">
             <h2>
               <span class="badge badge-secondary text-white"
-                >${{listing.price | intcomma}}</span
+                >${{listing.price | intcomma }}</span
               >
             </h2>
           </div>
@@ -52,50 +55,49 @@
               <h4 class="text-primary">{{listing.title}}</h4>
               <p>
                 <i class="fas fa-map-marker text-secondary"></i>
-                {{listing.city}} {{listing.state}} {{listing.zipcode}}
+                {{listing.city}} {{listing.state}}, {{listing.zipcode}}
               </p>
             </div>
             <hr />
             <div class="row py-2 text-secondary">
               <div class="col-6">
-                <i class="fas fa-th-large"></i> Sqft : {{listing.sqft}}
+                <i class="fas fa-th-large"></i> Sqft: {{listing.sqft}}
               </div>
               <div class="col-6">
-                <i class="fas fa-car"></i> Garage : {{listing.garage}}
+                <i class="fas fa-car"></i> Garage: {{listing.garage}}
               </div>
             </div>
             <div class="row py-2 text-secondary">
               <div class="col-6">
-                <i class="fas fa-bed"></i> Bedroom : {{listing.bedrooms}}
+                <i class="fas fa-bed"></i> Bedrooms: {{listing.bedrooms}}
               </div>
               <div class="col-6">
-                <i class="fas fa-bath"></i> Bathroom : {{listing.bathroom}}
+                <i class="fas fa-bath"></i> Bathrooms: {{listing.bathroom}}
               </div>
             </div>
             <hr />
             <div class="row py-2 text-secondary">
               <div class="col-12">
-                <i class="fas fa-user"></i>{{listing.realtor}}
+                <i class="fas fa-user"></i> {{listing.realtor}}
               </div>
             </div>
             <div class="row text-secondary pb-2">
               <div class="col-6">
-                <i class="fas fa-clock"></i>{{listing.list_data | timesince}}
+                <i class="fas fa-clock"></i>{{listing.list_date | timesince}}
               </div>
             </div>
             <hr />
             <a
               href="{% url 'listing' listing.id %}"
               class="btn btn-primary btn-block"
-            >
-              More Info</a
+              >More Info</a
             >
           </div>
         </div>
       </div>
       {% endfor %} {% else %}
       <div class="col-md-12">
-        <!-- No data then display no data message -->
+        <!--No data then display no data message -->
         <p>No Listings Available</p>
       </div>
       {% endif %}
